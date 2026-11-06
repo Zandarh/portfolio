@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 import {
   ArrowUpRight,
   CardIcon,
@@ -292,16 +293,7 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* Floating WhatsApp button, mobile only */}
-      <a
-        href={site.whatsapp}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat with Alexander on WhatsApp (opens in a new tab)"
-        className="fixed right-4 bottom-4 z-50 grid size-14 place-items-center rounded-full bg-accent text-on-accent shadow-lift transition-colors hover:bg-accent-hover md:hidden"
-      >
-        <ChatIcon className="size-7" />
-      </a>
+      <FloatingWhatsApp href={site.whatsapp} heroId="top" />
     </>
   );
 }

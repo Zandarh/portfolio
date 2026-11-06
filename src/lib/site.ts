@@ -4,9 +4,9 @@ export const site = {
   title: "Alexander Ubaka | Full-Stack Web Developer",
   headline: "I build websites and platforms for businesses and organisations.",
   subheadline:
-    "From member portals and payments to dashboards and content systems: secure, fast, and easy for your team to manage.",
+    "From member portals and payments to dashboards and SEO: secure, fast, easy for your team to manage, and built to be found on Google.",
   description:
-    "Alexander Ubaka is a full-stack web developer in Nigeria building websites, member portals, payments, dashboards and content systems for businesses and organisations.",
+    "Alexander Ubaka is a full-stack web developer in Nigeria building websites, member portals, payments, dashboards and SEO-ready sites for businesses and organisations.",
   location: "Based in Nigeria, working with clients locally and abroad.",
   url: "https://alexanderubaka.vercel.app",
   email: "tekunainnovations@gmail.com",
@@ -26,6 +26,9 @@ export const skills = [
   "Tailwind CSS",
   "Paystack payments",
   "REST APIs",
+  "SEO",
+  "Google Search Console",
+  "Technical SEO",
 ];
 
 export const services = [
@@ -44,6 +47,10 @@ export const services = [
   {
     title: "Admin dashboards & content systems",
     body: "Back-office tools that let your team manage orders, users and content without touching code.",
+  },
+  {
+    title: "SEO: get found on Google",
+    body: "Sites built to rank: fast pages, clean structure, search-friendly content, Google Business Profile and Search Console setup, so customers find you, not just your competitors.",
   },
 ];
 
@@ -73,6 +80,8 @@ export type Project = {
   tags: string[];
   image: string;
   imageAlt: string;
+  /** Short verified result, shown as a small accent badge under the description. */
+  highlight?: string;
   /** Private projects show a note instead of a "Visit site" link. */
   private?: boolean;
 };
@@ -92,7 +101,9 @@ export const projects: Project[] = [
     url: "https://abujaculinaryschool.com",
     description:
       "Website for a culinary school with courses, blog, alumni, shop and a student login portal. Designed and built the site and its content management.",
-    tags: ["PHP", "Student portal", "CMS", "Shop"],
+    tags: ["PHP", "Student portal", "CMS", "Shop", "SEO"],
+    highlight:
+      "Page one on Google for \u201cbest culinary school in Abuja\u201d and \u201cbest culinary school in Nigeria\u201d (Nov 2026).",
     image: "/projects/abujaculinary.webp",
     imageAlt: "Abuja Culinary School homepage hero reading “The Best Culinary School in Nigeria”",
   },

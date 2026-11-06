@@ -10,6 +10,8 @@ import {
   LayoutIcon,
   LockIcon,
   MailIcon,
+  SearchIcon,
+  TrendIcon,
   UsersIcon,
 } from "@/components/icons";
 import { projects, services, site, skills, steps } from "@/lib/site";
@@ -22,7 +24,16 @@ const nav = [
   { href: "#contact", label: "Contact" },
 ];
 
-const serviceIcons = [GlobeIcon, UsersIcon, CardIcon, LayoutIcon];
+const serviceIcons = [GlobeIcon, UsersIcon, CardIcon, LayoutIcon, SearchIcon];
+
+// 5 cards: 1 column on phones, 2 + 2 + 1 (full width) on tablets, 3 + 2 on desktop.
+const serviceSpan = [
+  "lg:col-span-2",
+  "lg:col-span-2",
+  "lg:col-span-2",
+  "lg:col-span-3",
+  "sm:col-span-2 lg:col-span-3",
+];
 
 const btnPrimary =
   "inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-[15px] font-semibold text-on-accent shadow-soft transition-colors hover:bg-accent-hover";
@@ -127,11 +138,11 @@ export default function Home() {
         <section aria-labelledby="services-title" id="services" className="border-y border-line bg-surface-2/50">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24">
             <SectionHeading id="services-title" eyebrow="Services" title="What I can build for you" />
-            <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
               {services.map((s, i) => {
                 const Icon = serviceIcons[i];
                 return (
-                  <li key={s.title} className="rounded-2xl border border-line bg-surface p-6 shadow-soft">
+                  <li key={s.title} className={`rounded-2xl border border-line bg-surface p-6 shadow-soft ${serviceSpan[i]}`}>
                     <span className="grid size-11 place-items-center rounded-xl bg-accent-soft text-accent-link">
                       <Icon />
                     </span>
@@ -167,7 +178,14 @@ export default function Home() {
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <h3 className="text-xl font-bold">{p.title}</h3>
-                    <p className="mt-2 flex-1 leading-relaxed text-muted">{p.description}</p>
+                    <p className="mt-2 leading-relaxed text-muted">{p.description}</p>
+                    {p.highlight && (
+                      <p className="mt-4 flex items-start gap-2 rounded-xl border border-accent/25 bg-accent-soft px-3 py-2 text-sm leading-snug font-medium text-accent-link">
+                        <TrendIcon className="mt-0.5 size-4 shrink-0" />
+                        <span>{p.highlight}</span>
+                      </p>
+                    )}
+                    <div className="flex-1" />
                     <ul className="mt-4 flex flex-wrap gap-2" aria-label={`${p.title} technologies and features`}>
                       {p.tags.map((t) => (
                         <Tag key={t}>{t}</Tag>

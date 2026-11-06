@@ -70,3 +70,16 @@ export const LayoutIcon = ({ className = "size-6" }: P) => (
     <path d="M3 9h18M9 21V9" />
   </svg>
 );
+
+export const SearchIcon = ({ className = "size-6" }: P) => (
+  <svg {...base} className={className}>
+    <circle cx="10.5" cy="10.5" r="6.5" />
+    <path d="M15.5 15.5L21 21" />
+  </svg>
+);
+
+export const TrendIcon = ({ className = "size-4" }: P) => (
+  <svg {...base} className={className}>
+    <path d="M3 17l6-6 4 4 8-8M15 7h6v6" />
+  </svg>
+);
